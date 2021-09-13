@@ -1,7 +1,8 @@
 <?php
+ini_set('error_reporting', E_ALL);
 /**
  * Classe de conexão ao banco de dados usando PDO no padrão Singleton.
- * 
+ *
  * Exemplo de uso:
  * ```
  * require_once './Database.class.php';
@@ -11,7 +12,7 @@
  * $insercao->bindParam(':idade', $idade); // Faz a ligação entre o parâmetro ":idade" com a variável $idade (supondo que $idade contém um número fornecido pelo usuário).
  * $insercao->execute(); // Executa a instrução no banco de dados (com os parâmetros já substituídos por seus respectivos valores).
  * ```
- * 
+ *
  * Para mais informações, confira o Manual do PDO: https://www.php.net/manual/en/intro.pdo.php
  */
 class Database
@@ -23,30 +24,32 @@ class Database
     private function __construct()
     {
         # Informações sobre o banco de dados:
-        $db_host = "localhost";
-        $db_nome = "cep";
+        $db_host = "127.0.0.1";
+        $db_nome = "ceps";
         $db_usuario = "root";
         $db_senha = "";
         $db_driver = "mysql";
+
 
         # Informações sobre o sistema:
         $sistema_titulo = "Nome do Sistema";
         $sistema_email = "alguem@gmail.com";
 
-        try
-        {
+        try {
             # Atribui o objeto PDO à variável $db.
-            self::$db = new PDO("$db_driver:host=$db_host; dbname=$db_nome", $db_usuario, $db_senha);
+            self::$db = new PDO("$db_driver:host=$db_host;dbname=$db_nome", $db_usuario, $db_senha);
+
             # Garante que o PDO lance exceções durante erros.
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             # Garante que os dados sejam armazenados com codificação UFT-8.
             self::$db->exec('SET NAMES utf8');
-        }
-        catch (PDOException $e)
-        {
+        } catch (PDOException $e) {
             # Envia um e-mail para o e-mail oficial do sistema, em caso de erro de conexão.
             // mail($sistema_email, "PDOException em $sistema_titulo", $e->getMessage());
             # Então não carrega nada mais da página.
+            echo "<pre>";
+            print_r($e);
+            echo "</pre>";
             die("Connection Error: " . $e->getMessage());
         }
     }
@@ -55,13 +58,11 @@ class Database
     public static function conexao()
     {
         # Garante uma única instância. Se não existe uma conexão, criamos uma nova.
-        if (!self::$db)
-        {
+        if (!self::$db) {
             new Database();
         }
 
         # Retorna a conexão.
         return self::$db;
     }
-
 }
