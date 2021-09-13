@@ -26,6 +26,7 @@ class Cep_Controller
 
         $this->model->save($wscep);
 
+        //transforma os dados xml em Json
         $json = json_encode($wscep);
         $array = json_decode($json, TRUE);
 
