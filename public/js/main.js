@@ -16,8 +16,9 @@ function verificaCep(cepValue) {
 
 
   //url completa para requisição
-  let requisicao = `./index.php?${url}`;
+  let requisicao = `./classes/Cep_consulta.php?${url}`;
 
+  console.log(requisicao);
   //Requisição
   fetch(requisicao)
     .then(response => response.json())

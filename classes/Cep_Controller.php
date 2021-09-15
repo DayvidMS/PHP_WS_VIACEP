@@ -20,6 +20,7 @@ class Cep_Controller
 
         $modelCep = $this->model->verificaCep($cep);
         if (!empty($modelCep)) {
+
             return $modelCep;
         }
         $wscep = $this->ws->searchCep($cep);

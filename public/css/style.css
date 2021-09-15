@@ -1,82 +1,11 @@
-@media (min-width: 768px) {
-    .cepPage
-    {
-        background-image: url('../img/img-fundo.jpeg');
-        background-repeat: no-repeat;
-        bottom: 0;
-        color: black;
-        left: 0;
-        overflow: auto;
-        padding: 3em;
-        position: absolute;
-        right: 0;
-        text-align: center;
-        top: 0;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-
-
-    }
-}
-
-@media (min-width: 992px) {
-    .cepPage
-    {
-        background-image: url('../img/img-fundo.jpeg');
-        background-repeat: no-repeat;
-        bottom: 0;
-        color: black;
-        left: 0;
-        overflow: auto;
-        padding: 3em;
-        position: absolute;
-        right: 0;
-        text-align: center;
-        top: 0;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-
-
-    }
-}
-
-@media (min-width: 1200px) {
-    .cepPage
-    {
-        background-image: url('../img/img-fundo.jpeg');
-        background-repeat: no-repeat;
-        bottom: 0;
-        color: black;
-        left: 0;
-        overflow: auto;
-        padding: 3em;
-        position: absolute;
-        right: 0;
-        text-align: center;
-        top: 0;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-
-
-    }
-}
-.configdiv
+.ajusteContainer
 {
-    background-color: rgba(246, 238, 238, 0.8);
-    border: 1px solid #DDDDDD;
-    padding: 10px;
+    max-width: 40%;
+    border: 1px solid #000000;
+    padding: 20px;
+    margin: auto 0;
 }
-
-.configinput
+input
 {
-    background-color: rgb(218, 215, 215);
-    border: 1px solid #DDDDDD;
-    padding: 10px;
-}
-label {
-    display: inline-block;
-    width: 150px;
+margin: 10px !important;
 }
